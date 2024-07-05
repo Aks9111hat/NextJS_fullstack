@@ -26,9 +26,9 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
             from: "noreply@myapp.com",
             to: email,
             subject: emailType === "VERIFY" ? "Verify your email" : "Reset your password",
-            html: `<h1>Verify your email</h1><p>Click <a href="${process.env.DOMAIN}/verifyemail?token=${hashedToken}">here</a> to ${emailType === "VERIFY" ? "Verify your email" : "Reset your password"}
+            html: `<h1>${emailType === "VERIFY" ? "Verify your email" : "Reset your password"}</h1><p>Click <a href="${process.env.DOMAIN}/${emailType === "VERIFY" ? "verifyemail" : "resetpassword"}?token=${hashedToken}">here</a> to ${emailType === "VERIFY" ? "Verify your email" : "Reset your password"}
             or copy and paste the link below in your browser. <br>
-            ${process.env.DOMAIN}/verifyemail?token=${hashedToken}
+            ${process.env.DOMAIN}/${emailType === "VERIFY" ? "verifyemail" : "resetpassword"}?token=${hashedToken}
             </p>`
         }
 

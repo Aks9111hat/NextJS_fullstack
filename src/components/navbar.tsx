@@ -4,6 +4,7 @@ import { useUser } from '@/contexts/userContext';
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import axios from "axios"
+import Link from "next/link";
 
 export default function Navbar() {
 
@@ -28,13 +29,16 @@ export default function Navbar() {
     }
 
     return (
-        <nav className="flex p-4 bg-emerald-300">
+        <nav className="flex justify-between items-center p-4 bg-emerald-300">
             <Logo />
-            {user === null ? (
-                <button onClick={navSignup}>SignUp/LogIn</button>
-            ) : (
-                <button onClick={logout}>LogOut</button>
-            )}
+            <div className="flex gap-4">
+                <Link href="/">Home</Link>
+                {user === null ? (
+                    <button onClick={navSignup}>SignUp/LogIn</button>
+                ) : (
+                    <button onClick={logout}>LogOut</button>
+                )}
+            </div>            
         </nav>
     )
 }
