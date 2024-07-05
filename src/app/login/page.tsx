@@ -51,7 +51,7 @@ export default function LoginPage() {
     }, [user])
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen py-2">
+        <div className="flex flex-col items-center justify-center min-h-screen py-2 gap-2">
             <h1>{loading ? "Processessing" : "Login"}</h1>
             <hr />
             <label htmlFor="email">email</label>
@@ -76,6 +76,7 @@ export default function LoginPage() {
                 onClick={onLogin}
                 className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
             >Login here</button>
+            <p>Forgot Password? <Link href="/resetpasswordemail" className="text-blue-600">Click Here to Reset Password</Link> </p>
             <p>Don't have a account? <Link href="/signup" className="text-blue-600">Signup here</Link></p>
         </div>
     )
