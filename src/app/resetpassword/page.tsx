@@ -43,21 +43,21 @@ export default function ResetPasswordPage() {
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             {/* <h2 className="p-2 m-3 bg-orange-500 text-black">{token ? `${token}` : "no token"}</h2> */}
             {!resetdone && (
-                <div>
+                <div className="flex flex-col items-center justify-center min-h-screen py-2">
                     <h1 className="text-4xl p-3">Reset Your Password</h1>
-                    <label htmlFor="password">password</label>
+                    <label htmlFor="password">New Password</label>
                     <input
                         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
                         type="password"
                         id="password"
                         value={user.password}
                         onChange={(e) => setUser({ ...user, password: e.target.value })}
-                        placeholder="password"
+                        placeholder="New Password"
                     />
                     <button
                         onClick={updatePassword}
                         className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600"
-                    >Login here</button>
+                    >Reset Password</button>
                 </div>
             )
             }
@@ -65,7 +65,7 @@ export default function ResetPasswordPage() {
                 resetdone && (
                     <div className="flex flex-col items-center justify-center min-h-screen py-2">
                         <h1 className="text-4xl p-3">Password Reset Successfull</h1>
-                        <Link href="/login"><button className="p-2 border border-gray-300 rounded-lg"></button></Link>
+                        <Link href="/login"><button className="p-2 border border-gray-300 rounded-lg">Go to Login</button></Link>
                     </div>
                 )
             }
