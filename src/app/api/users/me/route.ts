@@ -5,17 +5,21 @@ import { connect } from "@/dbConfig/dbConfig";
 
 connect();
 
-export async function GET(request:NextRequest){
+export async function GET(request: NextRequest) {
 
     try {
         const userId = await getDataFromToken(request);
-        const user = await User.findOne({_id: userId}).select("-password");
+        const user = await User.findOne({ _id: userId }).select("-password");
+        if (!user) {
+            return NextResponse.json({ message: "Token Not found", success: false }, { status: 200 })
+        }
         return NextResponse.json({
-            message:"User found",
+            message: "User found",
+            success: true,
             data: user,
         });
-    } catch (error:any) {
-        return NextResponse.json({error:error.message},{status:400});
+    } catch (error: any) {
+        return NextResponse.json({ error: error, message: error.message, success: false }, { status: 400 });
     }
 }
 
