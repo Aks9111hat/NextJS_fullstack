@@ -1,8 +1,25 @@
-import Image from "next/image";
-import Navbar from "@/components/navbar";
+"use client"
 
-export default function Home() {
+import Hero from '@/components/Hero';
+import Features1 from '@/components/features1';
+import Features2 from '@/components/features2';
+import CTA from '@/components/cta';
+import Steps from '@/components/Steps';
+import Contact from '@/components/contact';
+import Footer from '@/components/Footer'
+
+const Home = () => {
   return (
-      <div>This Home Page</div>
-      );
-}
+    <div>
+      <Hero />
+      <Features1 />
+      <CTA />
+      <Features2 />
+      <Steps />
+      <Contact />
+      <Footer />
+    </div>
+  );
+};
+
+export default Home;
